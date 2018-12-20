@@ -8,8 +8,8 @@ MAINTAINER dbaskette@pivotal.io
 COPY * /tmp/
 RUN echo root:pivotal | chpasswd \
         && yum install -y unzip which tar more util-linux-ng passwd openssh-clients openssh-server ed m4; yum clean all \
-        && unzip /tmp/greenplum-db-4.3.7.1-build-1-RHEL5-x86_64.zip -d /tmp/ \
-        && rm /tmp/greenplum-db-4.3.7.1-build-1-RHEL5-x86_64.zip \
+        && unzip /tmp/gpdb-5.1.5.1.zip -d /tmp/ \
+        && rm /tmp/gpdb-5.1.5.1.zip \
         && sed -i s/"more << EOF"/"cat << EOF"/g /tmp/greenplum-db-4.3.7.1-build-1-RHEL5-x86_64.bin \
         && echo -e "yes\n\nyes\nyes\n" | /tmp/greenplum-db-4.3.7.1-build-1-RHEL5-x86_64.bin \
         && rm /tmp/greenplum-db-4.3.7.1-build-1-RHEL5-x86_64.bin \
